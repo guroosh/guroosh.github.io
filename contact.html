@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Guroosh Singh</title>
+  <link rel="stylesheet" href="assets/output.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --cream:#f0ebe0; --ink:#1a1612; --rust:#c45c2e; --warm-grey:#8a8278; --paper:#e8e1d3; }
+    * { box-sizing: border-box; }
+    body { background-color:var(--cream); color:var(--ink); font-family:'Space Mono',monospace; }
+    h1,h2,h3,.display { font-family:'Syne',sans-serif; }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:100; opacity:0.5;
+    }
+    nav a { font-family:'Space Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; }
+    nav a.active { color:var(--rust); border-bottom:2px solid var(--rust); padding-bottom:2px; }
+    nav a:not(.active):hover { color:var(--rust); }
+    .tag { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--cream); padding:3px 10px; display:inline-block; }
+    .rule { border:none; border-top:1px solid var(--ink); }
+    .rule-light { border:none; border-top:1px solid rgba(26,22,18,0.15); }
+    .fade-in { animation:fadeIn 0.7s ease forwards; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+    .contact-link {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(26,22,18,0.15);
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.2s;
+      gap: 1rem;
+    }
+    .contact-link:hover .arrow { transform: translateX(4px); color: var(--rust); }
+    .contact-link:hover .link-label { color: var(--rust); }
+    .arrow { transition: transform 0.2s, color 0.2s; font-size: 1.1rem; margin-top: 2px; }
+
+    .big-email {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      word-break: break-all;
+      line-height: 1.1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .big-email:hover { color: var(--rust); }
+
+    .edu-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(26,22,18,0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="border-b border-black/20 px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 z-50" style="background:var(--cream)">
+    <a href="index.html" class="font-bold text-sm tracking-widest uppercase" style="font-family:'Syne',sans-serif; color:var(--ink)">CGS</a>
+    <div class="flex gap-6 items-center">
+      <a href="index.html" class="transition-colors" style="color:var(--ink)">Home</a>
+      <a href="projects.html" class="transition-colors" style="color:var(--ink)">Projects</a>
+      <a href="contact.html" class="active transition-colors">Contact</a>
+      <a href="resume.html" class="transition-colors" style="color:var(--ink)">Résumé</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="px-6 md:px-12 pt-14 pb-10 fade-in">
+    <span style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Get in touch</span>
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem); font-weight:800; letter-spacing:-0.02em; margin-top:0.5rem; line-height:1.05">Let's Talk</h1>
+    <p style="font-size:0.78rem; color:var(--warm-grey); margin-top:0.75rem; max-width:420px; line-height:1.8">
+      Open to interesting engineering problems, collaborations, and conversations about distributed systems or GenAI.
+    </p>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- EMAIL BIG -->
+  <section class="px-6 md:px-12 py-14 fade-in">
+    <div style="font-size:0.65rem; color:var(--warm-grey); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.75rem">Email</div>
+    <a href="mailto:guroosh7777@gmail.com" class="big-email">guroosh7777@gmail.com</a>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- LINKS -->
+  <section class="px-6 md:px-12 py-8 fade-in">
+    <div class="flex items-baseline gap-4 mb-2">
+      <h2 style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Find me on</h2>
+    </div>
+
+    <a href="https://linkedin.com/in/guroosh" target="_blank" class="contact-link">
+      <div>
+        <div class="link-label" style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; transition:color 0.2s">LinkedIn</div>
+        <div style="font-size:0.7rem; color:var(--warm-grey); margin-top:3px">linkedin.com/in/guroosh</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="https://github.com/guroosh" target="_blank" class="contact-link">
+      <div>
+        <div class="link-label" style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; transition:color 0.2s">GitHub</div>
+        <div style="font-size:0.7rem; color:var(--warm-grey); margin-top:3px">github.com/guroosh</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="https://medium.com/@guroosh" target="_blank" class="contact-link">
+      <div>
+        <div class="link-label" style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; transition:color 0.2s">Medium</div>
+        <div style="font-size:0.7rem; color:var(--warm-grey); margin-top:3px">Technical writing — backend, databases, distributed systems</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="tel:+918882745150" class="contact-link">
+      <div>
+        <div class="link-label" style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; transition:color 0.2s">Phone</div>
+        <div style="font-size:0.7rem; color:var(--warm-grey); margin-top:3px">+91 88827 45150 · Hyderabad, India</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- EDUCATION -->
+  <section class="px-6 md:px-12 py-12 fade-in">
+    <div class="flex items-baseline gap-4 mb-6">
+      <h2 style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Education</h2>
+      <hr class="rule-light flex-1" />
+    </div>
+
+    <div class="edu-item">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem">
+        <div>
+          <h3 style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem">M.Sc. Computer Science</h3>
+          <div style="font-size:0.75rem; color:var(--rust); margin-top:3px">Trinity College Dublin · Dublin, Ireland</div>
+        </div>
+        <span class="tag">2019 — 2020</span>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem">
+        <div>
+          <h3 style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem">B.Tech Computer Science & Engineering</h3>
+          <div style="font-size:0.75rem; color:var(--rust); margin-top:3px">IIIT Delhi · New Delhi, India</div>
+        </div>
+        <span class="tag">2014 — 2018</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 py-8 flex flex-wrap justify-between items-center gap-4" style="color:var(--warm-grey); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid rgba(26,22,18,0.15)">
+    <span>© 2026 Chaudhary Guroosh Singh</span>
+    <div class="flex gap-6">
+      <a href="https://github.com/guroosh" target="_blank" style="color:var(--warm-grey)">GitHub</a>
+      <a href="https://linkedin.com/in/guroosh" target="_blank" style="color:var(--warm-grey)">LinkedIn</a>
+      <a href="https://medium.com/@guroosh" target="_blank" style="color:var(--warm-grey)">Medium</a>
+    </div>
+  </footer>
+
+</body>
+</html>

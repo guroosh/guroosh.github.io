@@ -1,471 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Guroosh</title>
-	<link rel="icon" type="text/css" href="img/icon2.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guroosh Singh — Software Engineer</title>
+  <link rel="stylesheet" href="assets/output.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f0ebe0;
+      --ink: #1a1612;
+      --rust: #c45c2e;
+      --warm-grey: #8a8278;
+      --paper: #e8e1d3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+    }
+    h1, h2, h3, .display { font-family: 'Syne', sans-serif; }
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 100; opacity: 0.5;
+    }
 
-	<link rel="stylesheet" type="text/css" href="css/superslides.css">
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    nav a { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    nav a.active { color: var(--rust); border-bottom: 2px solid var(--rust); }
+    nav a:not(.active):hover { color: var(--rust); }
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 3px 10px;
+      display: inline-block;
+    }
+    .tag-outline {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      padding: 3px 10px;
+      display: inline-block;
+    }
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    .rule { border: none; border-top: 1px solid var(--ink); }
+    .rule-light { border: none; border-top: 1px solid rgba(26,22,18,0.15); }
+
+    .exp-item { border-left: 2px solid var(--rust); padding-left: 1.25rem; }
+
+    .blink { animation: blink 1.1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .fade-in { animation: fadeIn 0.7s ease forwards; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+    .hero-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(5rem, 14vw, 10rem);
+      line-height: 0.9;
+      color: var(--paper);
+      user-select: none;
+      position: absolute;
+      right: -0.05em;
+      top: -0.2em;
+      z-index: 0;
+    }
+
+    .skill-group { border-top: 1px solid rgba(26,22,18,0.2); padding-top: 0.75rem; }
+  </style>
 </head>
-<body>
-
-	<div class="loader">
-		<div class="inner"></div>
-	</div>
-
-	<div id="slides">
-
-		<div class="overlay"></div>
-
-		<div class="slides-container">
-		    <!-- <img src="img/slide1.jpg" alt=""> -->
-		    <!-- <img src="img/slide2.jpeg" alt=""> -->
-		    <!-- <img src="img/slide3.jpeg" alt=""> -->
-		    <img src="img/slide4.jpg" alt="">
-		    <img src="img/slide5.jpg" alt="">
-		    <img src="img/slide6.jpg" alt="">
-		</div>
-
-		<div class="titleMessage">
-			<div class="heading">
-				<p class="main">Chaudhary Guroosh Singh</p>
-				<p class="sub typed"></p>
-			</div>
-		</div>
-
-
-		<!--<nav class="slides-navigation">
-		    <a href="#" class="next"></a>
-		    <a href="#" class="prev"></a>
-		</nav>-->
-
-
-	</div>
-
-
-	<nav id="navigation" class="navbar navbar-expand-lg">
-	  <a class="navbar-brand" href="index.html" style="margin-left: 40px">Chaudhary Guroosh Singh</a>
-
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-
-	  <div class="collapse navbar-collapse" id="navbarNav">
-	    <ul class="navbar-nav">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#about">About <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#skills">Skills</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#stats">Stats</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#contact">Contact</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#portfolio">Projects</a>
-	      </li>
-	    </ul>
-	  </div>
-
-	</nav>
-
-
-
-
-	<div id="about" class="section">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-5">
-					<img class="aboutImage" src="img/name2.jpg">
-				</div>
-
-				<div class="col-md-7">
-
-					<h4>Hi!</h4>
-					<h4>My name is Chaudhary Guroosh Singh</h4>
-
-					<span style="font-size: 120%;"><p>I am a recent graduate with a Master’s degree in Computer Science (specializing in Networked Systems) from Trinity College Dublin and a Bachelor’s degree in Computer Science from IIIT-Delhi, India. </p>
-
-					<p> I also have 1 year work experience working as a Junior Data Scientist for Scry Analytics, India.</p>
-					<p> I am a skilled programmer with proficiency in Java, Python and C++ and throughout my academic and professional career, I have created and deployed full-stack applications using various programming languages and latest technologies. </p></span>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="timeflow" align="center">
-		<p>MY JOURNEY:</p>	
-		<img src="img/timeline2.png" width="3000">
-		<p>You can find details <a href="https://www.linkedin.com/in/guroosh/"> here.</a></p>
-	</div>
-
-	<div id="skills" class="skillsSection section">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-12 text-center">
-					<h2>SKILLS</h2>
-					<p> (Scroll) <------- My proficiency in each skill -------> (Scroll) </p>
-				</div>
-
-
-				<div class="owl-carousel owl-theme">
-				    
-				    <div class="skill">
-				    	<span class="chart" data-percent="80">
-				    		<span class="percent">80</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Java</h4>
-				    	<p>Used in most of my projects</p>
-				    </div>
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="75">
-				    		<span class="percent">75</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Python</h4>
-				    	<p>Used extensively at Scry Analytics</p>
-				    </div>
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="53">
-				    		<span class="percent">53</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>C++</h4>
-				    	<p>Used for my master's dissertation</p>
-				    </div>
-
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="72">
-				    		<span class="percent">72</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Git</h4>
-				    	<p>Used for project collabration & development</p>
-				    </div>
-
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="70">
-				    		<span class="percent">70</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>MongoDB</h4>
-				    	<p>Used as my main database for many projects</p>
-				    </div>
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="68">
-				    		<span class="percent">68</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Android</h4>
-				    	<p>Used for side development</p>
-				    </div>
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="65">
-				    		<span class="percent">65</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Flask</h4>
-				    	<p>My main goto framework for API creation</p>
-				    </div>
-
-				    <div class="skill">
-				    	<span class="chart" data-percent="49">
-				    		<span class="percent">49</span>
-				    		<canvas height="152" width="152"></canvas>
-				    	</span>
-				    	<h4>Javascript/nodeJS</h4>
-				    	<p>Used for full stack website creation</p>
-				    </div>
-
-				</div>
-
-				
-
-			</div>
-
-		</div>
-
-	</div>
-
-
-
-	<div id="stats" class="statsSection section">
-
-		<div class="container">
-
-			<div class="row">
-
-				
-				<div class="col-md-3 col-sm-6" align="center">
-					<div class="squareItem">
-						<div class="squareInnerContainer">
-							<div class="squareIcon">
-								<i class="fa fa-clock"></i>
-							</div>
-							<div class="squareContent">
-                                <h2 class="counter">1</h2>
-                                <h3>Year Experience<br>‎</h3>
-                            </div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3">
-					<div class="squareItem">
-						<div class="squareInnerContainer">
-							<div class="squareIcon">
-								<i class="fa fa-book"></i>
-							</div>
-							<div class="squareContent">
-                                <h2 class="counter">2</h2>
-                                <h3>Papers published @ScryAnalytics</h3>
-                            </div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="squareItem">
-						<div class="squareInnerContainer">
-							<div class="squareIcon">
-								<i class="fa fa-code-branch"></i>
-								<!-- <i class="fa fa-bolt"></i> -->
-							</div>
-							<div class="squareContent">
-                                <h2 class="counter">13</h2>
-                                <h3>Projects and counting!<br>‎</h3>
-                            </div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="squareItem">
-						<div class="squareInnerContainer">
-							<div class="squareIcon">
-								<i class="fa fa-graduation-cap"></i>
-								<!-- <i class="fa fa-cloud"></i> -->
-							</div>
-							<div class="squareContent">
-                                <h2 class="counter">20 &plus;</h2>
-                                <h3>Courses<br>‎</h3>
-                            </div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<div id="contact" class="contactSection section">
-
-		<div class="col-md-12 text-center">
-
-			<p class="subHeading">Like what you see?</p>
-			<h2>I'd love to hear from you!</h2>
-			<a href="mailTo:guroosh7777@gmail.com" class="contactButton">GET IN TOUCH!</a>
-
-		</div>
-
-	</div>
-
-
-
-	<div id="portfolio" class="section">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="heading">
-					<h2>PROJECTS</h2>
-				</div>
-
-				<div class="itemsContainer">
-
-					<ul class="items">
-
-						<li class="apps col-xs-6 col-sm-4 col-md-3 col-lg-3">
-
-
-							<div class="item" align="center">
-								<h4>"Full Stack Android project: <br> City Disaster Management"</h4>
-
-
-								<div class="icons">
-									<a href="img/portfolio/thumbnails/1.png" title="View image" class="openButton" data-fancybox data-caption="">
-										<i class="fa fa-file-image"></i>
-									</a>
-
-									<a href="https://github.com/guroosh/City-Disaster-Management---Android" target="_blank" class="projectLink">
-										<i class="fa fa-link"></i>
-									</a>
-								</div>
-
-								<div class="imageOverlay"></div>
-
-							</div>
-
-
-						</li>
-
-						<li class="websites col-xs-6 col-sm-4 col-md-3 col-lg-3">
-
-
-							<div class="item" align="center">
-
-								<h4>"AI project: Optimal Path Finding in a GridWorld Environment"</h4>
-
-
-								<div class="icons">
-									<a href="img/portfolio/thumbnails/2.png" title="View image" class="openButton" data-fancybox data-caption="">
-										<i class="fa fa-file-image"></i>
-									</a>
-
-									<a href="https://github.com/guroosh/CS7IS2-AI-project" target="_blank" class="projectLink">
-										<i class="fa fa-link"></i>
-									</a>
-								</div>
-
-								<div class="imageOverlay"></div>
-
-							</div>
-
-
-						</li>
-
-						<li class="me col-xs-6 col-sm-4 col-md-3 col-lg-3">
-
-
-							<div class="item" align="center">
-
-								<h4>"A Text Search Engine based on Apache Lucene was planned and implemented"</h4>
-
-
-								<div class="icons">
-									<a href="img/portfolio/thumbnails/3.jpg" title="View image" class="openButton" data-fancybox data-caption="">
-										<i class="fa fa-file-image"></i>
-									</a>
-
-									<a href="https://github.com/guroosh/Information-Retrieval---Lucene" target="_blank" class="projectLink">
-										<i class="fa fa-link"></i>
-									</a>
-								</div>
-
-								<div class="imageOverlay"></div>
-
-							</div>
-
-
-						</li>
-
-						<li class="apps col-xs-6 col-sm-4 col-md-3 col-lg-3">
-
-
-							<div class="item" align="center">
-
-								<h4>"An Android App <br> to help using Dublin Bikes easily and efficiently"</h4>
-
-								<div class="icons">
-									<a href="img/portfolio/thumbnails/4.jpg" title="View image" class="openButton" data-fancybox data-caption="">
-										<i class="fa fa-file-image"></i>
-									</a>
-
-									<a href="https://github.com/guroosh/DublinBikesRouteFinder" target="_blank" class="projectLink">
-										<i class="fa fa-link"></i>
-									</a>
-								</div>
-
-								<div class="imageOverlay"></div>
-
-							</div>
-
-
-						</li>
-
-					</ul>
-
-				</div>
-
-			</div>
-
-		</div>
-		<div class="timeflow" align="center">
-					<p>Github Link to all the Projects are <a href="https://github.com/guroosh"> here.</a></p>
-		</div>	
-	</div>
-
-	<div id="letsconnect" class="getconnectedsection">
-		<div class="heading" align=center>
-			<h4>LETS STAY CONNECTED</h4>
-
-		</div>
-		<div class="socialconnections" align=center>
-			<a href="https://www.linkedin.com/in/guroosh/" class="li-ic mr-3" role="button"><i class="fab fa-lg fa-linkedin-in"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="https://github.com/guroosh" class="git-ic mr-3" role="button"><i class="fab fa-lg fa-github"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="https://www.facebook.com/guroosh" class="fb-ic" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
-
-		</div>	
-	</div>
-		
-	<div class="copyrightSection">
-	
-		<div class="col-md-12 text-center">
-			<p>&copy; Copyright Chaudhary Guroosh Singh 2020</p>
-		</div>
-
-	</div>
-
-
-
-
-
-
-
-
-	<script src="js/countUp.js"></script>
-	<script src="js/countUp-jquery.js"></script>
-	<script src="js/jquery.superslides.min.js"></script>
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/typed.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://unpkg.com/isotope-layout@3.0.5/dist/isotope.pkgd.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-
-	<script src="js/script.js"></script>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="border-b border-black/20 px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 z-50" style="background:var(--cream)">
+    <a href="index.html" class="font-bold text-sm tracking-widest uppercase" style="font-family:'Syne',sans-serif; color:var(--ink)">CGS</a>
+    <div class="flex gap-6 items-center">
+      <a href="index.html" class="active transition-colors" style="color:var(--rust); border-bottom:2px solid var(--rust); padding-bottom:2px">Home</a>
+      <a href="projects.html" class="transition-colors" style="color:var(--ink)">Projects</a>
+      <a href="contact.html" class="transition-colors" style="color:var(--ink)">Contact</a>
+      <a href="resume.html" class="transition-colors" style="color:var(--ink)">Résumé</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="px-6 md:px-12 pt-16 pb-12 relative overflow-hidden fade-in">
+    <span class="hero-number">6</span>
+    <div class="relative z-10 max-w-2xl">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="tag">Available</span>
+        <span style="color:var(--warm-grey); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase">Hyderabad, India</span>
+      </div>
+      <h1 class="font-extrabold leading-none mb-4" style="font-size:clamp(2.8rem,7vw,5rem); letter-spacing:-0.02em">
+        Chaudhary<br>Guroosh Singh
+      </h1>
+      <p style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; color:var(--rust); letter-spacing:0.04em; margin-bottom:1.25rem">
+        Senior Software Engineer<span class="blink" style="color:var(--ink)">_</span>
+      </p>
+      <p style="color:var(--warm-grey); font-size:0.8rem; line-height:1.85; max-width:480px">
+        6 years building Python backends, distributed systems, and AI-powered platforms. Currently working on Generative AI &amp; agentic systems at Cognida.ai. Previously at Demonware (Activision), handling auth &amp; account services for millions of daily active users.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Azure DevOps</span><span class="tag">LLM + RAG</span><span class="tag">Kubernetes</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- EXPERIENCE -->
+  <section class="px-6 md:px-12 py-12 fade-in">
+    <div class="flex items-baseline gap-4 mb-8">
+      <h2 style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Professional Experience</h2>
+      <hr class="rule-light flex-1" />
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="exp-item">
+        <div style="font-size:0.65rem; color:var(--warm-grey); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px">Nov 2024 — Present</div>
+        <h3 style="font-family:'Syne',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:2px">Senior Software Engineer</h3>
+        <div style="color:var(--rust); font-size:0.75rem; font-weight:700; margin-bottom:10px">Cognida.ai · Hyderabad</div>
+        <p style="font-size:0.75rem; color:var(--warm-grey); line-height:1.8">
+          Generative AI solutions for external clients. Integrated autonomous AI agents for intelligent task execution using FastAPI, LLM + RAG pipelines, and vector indexing.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="tag-outline">FastAPI</span><span class="tag-outline">LLM</span><span class="tag-outline">Azure</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div style="font-size:0.65rem; color:var(--warm-grey); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px">Jan 2021 — Sept 2024</div>
+        <h3 style="font-family:'Syne',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:2px">Software Developer</h3>
+        <div style="color:var(--rust); font-size:0.75rem; font-weight:700; margin-bottom:10px">Demonware (Activision) · Dublin</div>
+        <p style="font-size:0.75rem; color:var(--warm-grey); line-height:1.8">
+          Python backend for cross-platform gaming auth & account storage — Xbox, PlayStation, Windows. Handled millions of DAU. Daily dev, test, deploy, monitor cycle with live studio support.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="tag-outline">Python</span><span class="tag-outline">MySQL</span><span class="tag-outline">Load Testing</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div style="font-size:0.65rem; color:var(--warm-grey); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px">June 2018 — July 2019</div>
+        <h3 style="font-family:'Syne',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:2px">Junior Data Scientist</h3>
+        <div style="color:var(--rust); font-size:0.75rem; font-weight:700; margin-bottom:10px">Scry AI · Gurugram</div>
+        <p style="font-size:0.75rem; color:var(--warm-grey); line-height:1.8">
+          Web crawlers and 3rd-party API data parsing using Java, Spark, and HBase. Data cleanup, management, and storage for analysis and insights generation.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="tag-outline">Java</span><span class="tag-outline">Spark</span><span class="tag-outline">HBase</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- SKILLS -->
+  <section class="px-6 md:px-12 py-12 fade-in">
+    <div class="flex items-baseline gap-4 mb-8">
+      <h2 style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Technical Skills</h2>
+      <hr class="rule-light flex-1" />
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="skill-group">
+        <div style="font-size:0.6rem; color:var(--warm-grey); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px">Core</div>
+        <div class="flex flex-wrap gap-1">
+          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">DynamoDB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div style="font-size:0.6rem; color:var(--warm-grey); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px">Frontend</div>
+        <div class="flex flex-wrap gap-1">
+          <span class="tag">JS</span><span class="tag">Svelte</span><span class="tag">HTML</span><span class="tag">Tailwind</span><span class="tag">Flask</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div style="font-size:0.6rem; color:var(--warm-grey); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px">DevOps & Cloud</div>
+        <div class="flex flex-wrap gap-1">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Jenkins</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div style="font-size:0.6rem; color:var(--warm-grey); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px">Monitoring</div>
+        <div class="flex flex-wrap gap-1">
+          <span class="tag">Elasticsearch</span><span class="tag">Kibana</span><span class="tag">Grafana</span><span class="tag">Kafka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 py-8 flex flex-wrap justify-between items-center gap-4" style="color:var(--warm-grey); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase">
+    <span>© 2026 Chaudhary Guroosh Singh</span>
+    <div class="flex gap-6">
+      <a href="https://github.com/guroosh" target="_blank" style="color:var(--warm-grey)" class="hover:text-black transition-colors">GitHub</a>
+      <a href="https://linkedin.com/in/guroosh" target="_blank" style="color:var(--warm-grey)" class="hover:text-black transition-colors">LinkedIn</a>
+      <a href="https://medium.com/@guroosh" target="_blank" style="color:var(--warm-grey)" class="hover:text-black transition-colors">Medium</a>
+    </div>
+  </footer>
 
 </body>
 </html>

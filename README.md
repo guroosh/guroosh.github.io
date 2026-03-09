@@ -1,1 +1,0 @@
-# https://guroosh.github.io/

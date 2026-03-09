@@ -1,0 +1,12 @@
+{
+  "name": "guroosh-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i assets/input.css -o assets/output.css --minify",
+    "watch": "npx @tailwindcss/cli -i assets/input.css -o assets/output.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

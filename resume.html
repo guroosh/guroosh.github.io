@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résumé — Guroosh Singh</title>
+  <link rel="stylesheet" href="assets/output.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --cream:#f0ebe0; --ink:#1a1612; --rust:#c45c2e; --warm-grey:#8a8278; --paper:#e8e1d3; }
+    * { box-sizing: border-box; }
+    body { background-color:var(--cream); color:var(--ink); font-family:'Space Mono',monospace; }
+    h1,h2,h3 { font-family:'Syne',sans-serif; }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:100; opacity:0.5;
+    }
+    nav a { font-family:'Space Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; }
+    nav a.active { color:var(--rust); border-bottom:2px solid var(--rust); padding-bottom:2px; }
+    nav a:not(.active):hover { color:var(--rust); }
+    .rule { border:none; border-top:1px solid var(--ink); }
+    .rule-light { border:none; border-top:1px solid rgba(26,22,18,0.15); }
+    .fade-in { animation:fadeIn 0.7s ease forwards; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    .btn-primary {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.65rem 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary:hover { background: var(--rust); }
+    .btn-outline {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      padding: 0.65rem 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+    .pdf-wrapper {
+      border: 1px solid rgba(26,22,18,0.2);
+      background: var(--paper);
+      overflow: hidden;
+    }
+    /* Mobile fallback notice */
+    .pdf-fallback { display: none; }
+    @media (max-width: 640px) {
+      .pdf-embed { display: none; }
+      .pdf-fallback { display: block; }
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <nav class="border-b border-black/20 px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 z-50" style="background:var(--cream)">
+    <a href="index.html" class="font-bold text-sm tracking-widest uppercase" style="font-family:'Syne',sans-serif; color:var(--ink)">CGS</a>
+    <div class="flex gap-6 items-center">
+      <a href="index.html" class="transition-colors" style="color:var(--ink)">Home</a>
+      <a href="projects.html" class="transition-colors" style="color:var(--ink)">Projects</a>
+      <a href="contact.html" class="transition-colors" style="color:var(--ink)">Contact</a>
+      <a href="resume.html" class="active transition-colors">Résumé</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="px-6 md:px-12 pt-14 pb-8 fade-in">
+    <span style="font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm-grey)">Full document</span>
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem); font-weight:800; letter-spacing:-0.02em; margin-top:0.5rem; line-height:1.05">Résumé</h1>
+    <p style="font-size:0.78rem; color:var(--warm-grey); margin-top:0.75rem; max-width:460px; line-height:1.8">
+      Download or view my full résumé. Last updated 2026.
+    </p>
+    <div class="flex gap-3 mt-6 flex-wrap">
+      <!-- UPDATE the href to your actual resume PDF path once uploaded to GitHub, e.g. /assets/resume.pdf -->
+      <a href="assets/resume.pdf" download class="btn-primary">↓ Download PDF</a>
+      <a href="assets/resume.pdf" target="_blank" class="btn-outline">Open in new tab ↗</a>
+    </div>
+  </section>
+
+  <hr class="rule mx-6 md:mx-12" />
+
+  <!-- PDF EMBED -->
+  <section class="px-6 md:px-12 py-10 fade-in">
+
+    <!-- Desktop: inline PDF viewer -->
+    <div class="pdf-wrapper pdf-embed" style="height:85vh">
+      <!-- UPDATE src to your actual resume PDF path e.g. assets/resume.pdf -->
+      <iframe
+        src="assets/resume.pdf"
+        width="100%"
+        height="100%"
+        style="border:none; display:block"
+        title="Guroosh Singh Resume"
+      ></iframe>
+    </div>
+
+    <!-- Mobile: fallback message -->
+    <div class="pdf-fallback pdf-wrapper p-8 text-center">
+      <p style="font-size:0.8rem; color:var(--warm-grey); margin-bottom:1.5rem">PDF preview is not available on small screens.</p>
+      <a href="assets/resume.pdf" download class="btn-primary">↓ Download Résumé</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 py-8 flex flex-wrap justify-between items-center gap-4" style="color:var(--warm-grey); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid rgba(26,22,18,0.15)">
+    <span>© 2026 Chaudhary Guroosh Singh</span>
+    <div class="flex gap-6">
+      <a href="https://github.com/guroosh" target="_blank" style="color:var(--warm-grey)">GitHub</a>
+      <a href="https://linkedin.com/in/guroosh" target="_blank" style="color:var(--warm-grey)">LinkedIn</a>
+      <a href="https://medium.com/@guroosh" target="_blank" style="color:var(--warm-grey)">Medium</a>
+    </div>
+  </footer>
+
+</body>
+</html>
